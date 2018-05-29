@@ -15,7 +15,7 @@ export class TransactionComponent {
  public lineChartData : Array<any>= [];
  public radioModel: string = 'Day';
  public lineChartLabels :Array<any> =[];
- public totalProfit : int = 0;
+ public totalProfit = 0;
  constructor(private _transactionService : TransactionService){ }
 
 ngOnInit()
