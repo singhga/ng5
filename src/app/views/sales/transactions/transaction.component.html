@@ -1,0 +1,51 @@
+<div class="animated fadeIn">
+  <h4 class="card-title">Sales by Transactions</h4>
+    <div class="card">
+      <div class="card-body" >
+        <div class="col-sm-14">
+          <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Day" id="option1" (click)=updateChart()>Day</label>
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Month" id="option2" (click)=updateChart()>Month</label>
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Year" id="option3" (click)=updateChart()>Year</label>
+          </div>
+        </div><!--/.col-->
+        <div class="chart-wrapper"   *ngIf="lineChartData?.length > 0"  style="height:200px;margin-top:40px">
+          <canvas #mainChart="base-chart" baseChart class="chart"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColours"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row">
+        <div class="card-body p-4 clearfix">
+          <i class="fa fa-dollar bg-warning p-3 font-2xl mr-3 float-left"></i>
+          <div class="h6 text-primary mb-0 mt-2">{{ totalProfit | number:0}}</div>
+          <div class="text-muted text-uppercase font-weight-bold font-xs">Profit</div>
+        </div>
+        <div class="card-body p-4 clearfix">
+          <i class="fa fa-btc bg-danger p-3 font-2xl mr-3 float-left"></i>
+          <div class="h6 text-primary mb-0 mt-2">$1.999,50</div>
+          <div class="text-muted text-uppercase font-weight-bold font-xs">Revenue</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body p-4 clearfix">
+          <i class="fa fa-arrow-circle-down bg-primary p-3 font-2xl mr-3 float-left"></i>
+          <div class="h6 text-primary mb-0 mt-2">$1.999,50</div>
+          <div class="text-muted text-uppercase font-weight-bold font-xs">Min Sale</div>
+        </div>
+        <div class="card-body p-4 clearfix">
+          <i class="fa fa-arrow-circle-up bg-info p-3 font-2xl mr-3 float-left"></i>
+          <div class="h6 text-primary mb-0 mt-2">$1.999,50</div>
+          <div class="text-muted text-uppercase font-weight-bold font-xs">Max Sale</div>
+        </div>
+      </div>
+      </div>
+</div>
