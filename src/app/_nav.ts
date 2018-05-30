@@ -2,7 +2,7 @@ export const navItems = [
   {
     name: 'Dashboard',
     url: '/dashboard',
-    icon: 'icon-speedometer',
+    icon: 'icon-speedometer'
     //badge: {
       //variant: 'info',
       //text: 'NEW'
@@ -36,24 +36,19 @@ export const navItems = [
   },
   {
     name: 'Employee',
-    url: '/Employee1',
+    url: '/employee',
     icon: 'cui-people',
     children : [
       {
-        name: 'Transactions',
-        url: '//transactions1',
-        icon: 'fa fa-credit-card-alt'
+        name: 'New Hire',
+        url: '/employee/newhire',
+        icon: 'fa fa-address-card-o'
     },
     {
-      name: 'Items',
-      url: '//items1',
-      icon: 'fa fa-cubes'
-  },
-  {
-    name: 'Locations',
-    url: '//locations1',
-    icon: 'fa fa-compass'
-}
+      name: 'Scheduler',
+      url: '/employee/Scheduler',
+      icon: 'fa fa-calendar-times-o'
+  }
     ]
   },
   {
