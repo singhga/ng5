@@ -67,6 +67,10 @@ export const routes: Routes = [
         loadChildren: './views/sales/sales.module#SalesModule'
       },
       {
+        path: 'employee',
+        loadChildren: './views/employee/employee.module#EmployeeModule'
+      },
+      {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
