@@ -9,7 +9,7 @@ export class TransactionService {
 
   getData(filter) {
     if (filter == 'Day')
-    {return this._http.get<any[]>("./assets/weekly_transaction.json")
+    {return this._http.get<any[]>("http://ec2-35-154-90-39.ap-south-1.compute.amazonaws.com:8082/api/v1/sales/transactions?duration=WEEK")
       .map(result => result);}
     else if (filter == 'Month')
     {
