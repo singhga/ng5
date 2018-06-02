@@ -28,7 +28,7 @@ ngOnInit()
         "data" : data,
         "label" : "Profits"
       }];
-      this.lineChartLabels = res.map(function(a) {return a["date"];});
+      this.lineChartLabels = res.map(function(a) {return a["transactionDate"];});
     })
 }
   public lineChartOptions: any = {
