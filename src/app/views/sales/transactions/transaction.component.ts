@@ -16,14 +16,15 @@ export class TransactionComponent {
  public radioModel: string = 'Day';
  public lineChartLabels :Array<any> =[];
  public totalProfit = 0;
+ public quantity= 0;
  constructor(private _transactionService : TransactionService){ }
 
 ngOnInit()
 {
   this._transactionService.getData(this.radioModel).subscribe(res =>
     {
-     var data =res.map(function(a) {return a["profit"];});
-     this.totalProfit = data.reduce((acc, cur) => acc + cur, 0);
+     this.totalProfit = res.map(function(a) {return a["profit"];}).reduce((acc, cur) => acc + cur, 0);
+     this.quantity = res.map(function(a) {return a["quantity"];}).reduce((acc, cur) => acc + cur, 0);
       this.lineChartData  = [{
         "data" : data,
         "label" : "Profits"
@@ -92,12 +93,12 @@ ngOnInit()
        if (this.mainChart !== undefined) {
        this.mainChart.chart.destroy();
        this.mainChart.chart = 0;
-       var data =res.map(function(a) {return a["profit"];});
         this.lineChartData  = [{
           "data" : data,
           "label" : "Profits"
         }];
-        this.totalProfit = data.reduce((acc, cur) => acc + cur, 0);
+        this.totalProfit = res.map(function(a) {return a["profit"];}).reduce((acc, cur) => acc + cur, 0);
+        this.quantity = res.map(function(a) {return a["quantity"];}).reduce((acc, cur) => acc + cur, 0);
         this.lineChartLabels = res.map(function(a) {return a["transactionDate"];});
         this.mainChart.datasets =   this.lineChartData ;
         this.mainChart.labels =   this.lineChartLabels;
