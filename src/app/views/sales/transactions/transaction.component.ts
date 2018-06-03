@@ -98,7 +98,7 @@ ngOnInit()
           "label" : "Profits"
         }];
         this.totalProfit = data.reduce((acc, cur) => acc + cur, 0);
-        this.lineChartLabels = res.map(function(a) {return a["date"];});
+        this.lineChartLabels = res.map(function(a) {return a["transactionDate"];});
         this.mainChart.datasets =   this.lineChartData ;
         this.mainChart.labels =   this.lineChartLabels;
         this.mainChart.ngOnInit();
